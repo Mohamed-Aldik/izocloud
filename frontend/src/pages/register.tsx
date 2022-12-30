@@ -14,7 +14,7 @@ import {
   Typography,
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { useAuth } from "@/hooks/auth";
+// import { useAuth } from "@/hooks/auth";
 import Router from "next/router";
 
 const Register = () => {
@@ -25,10 +25,10 @@ const Register = () => {
     passwordConfirmation: "",
   });
 
-  const { register } = useAuth({
-    middleware: "guest",
-    redirectIfAuthenticated: "/",
-  });
+  // const { register } = useAuth({
+  //   middleware: "guest",
+  //   redirectIfAuthenticated: "/",
+  // });
   console.log(errors);
   const formik = useFormik({
     initialValues: {

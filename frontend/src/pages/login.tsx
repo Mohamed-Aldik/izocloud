@@ -1,6 +1,6 @@
 import Head from "next/head";
 import NextLink from "next/link";
-import { useAuth } from "@/hooks/auth";
+// import { useAuth } from "@/hooks/auth";
 import Router, { useRouter } from "next/router";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -16,10 +16,10 @@ const Login = () => {
   const [status, setStatus] = useState(null);
   const router = useRouter();
 
-  const { login } = useAuth({
-    middleware: "guest",
-    redirectIfAuthenticated: "/",
-  });
+  // const { login } = useAuth({
+  //   middleware: "guest",
+  //   redirectIfAuthenticated: "/",
+  // });
   const formik = useFormik({
     initialValues: {
       email: "test@test.test",

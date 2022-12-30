@@ -15,7 +15,6 @@ import { Users as UsersIcon } from '../icons/users';
 import { XCircle as XCircleIcon } from '../icons/x-circle';
 import { Logo } from './logo';
 import { NavItem } from './nav-item';
-import Register from '../../../backend/vendor/laravel/breeze/stubs/inertia-react/resources/js/Pages/Auth/Register';
 
 const items = [
   {
