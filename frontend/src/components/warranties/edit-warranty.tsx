@@ -28,7 +28,7 @@ const EditWarranty = () => {
   const [open, setOpen] = useState(false);
   const [age, setAge] = useState("");
 
-  const handleChange = (event: SelectChangeEvent) => {
+  const handleChange = (event: any) => {
     setAge(event.target.value as string);
   };
   const router = useRouter();

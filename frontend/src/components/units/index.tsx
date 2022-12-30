@@ -102,7 +102,7 @@ export const UnitsListResults = ({ customers, ...rest }: any, props: any) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {customers.slice(0, limit).map((customer: any, index: Key) => (
+              {customers.slice(0, limit).map((customer: any, index: any) => (
                 <>
                   <TableRow
                     hover

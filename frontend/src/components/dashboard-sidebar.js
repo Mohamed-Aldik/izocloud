@@ -15,6 +15,7 @@ import { Users as UsersIcon } from '../icons/users';
 import { XCircle as XCircleIcon } from '../icons/x-circle';
 import { Logo } from './logo';
 import { NavItem } from './nav-item';
+import Register from '../../../backend/vendor/laravel/breeze/stubs/inertia-react/resources/js/Pages/Auth/Register';
 
 const items = [
   {
@@ -41,6 +42,16 @@ const items = [
     href: '/units',
     icon: (<ShoppingBagIcon fontSize="small" />),
     title: 'Units'
+  },
+  {
+    href: '/login',
+    icon: (<ShoppingBagIcon fontSize="small" />),
+    title: 'Login'
+  },
+  {
+    href: '/register',
+    icon: (<ShoppingBagIcon fontSize="small" />),
+    title: 'Register'
   },
   // {
   //   href: '/products',
