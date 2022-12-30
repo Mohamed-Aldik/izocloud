@@ -21,14 +21,14 @@ export const DashboardLayout = (props) => {
   const { children } = props;
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   //@ts-ignore
-  const { user } = useAuth({ middleware: 'guest' })
-  useEffect(()=>{
-    !user &&
-    Router
-      .push('/login')
-      .catch(console.error);
-  }
-    ,[user])
+  // const { user } = useAuth({ middleware: 'guest' })
+  // useEffect(()=>{
+  //   !user &&
+  //   Router
+  //     .push('/login')
+  //     .catch(console.error);
+  // }
+  //   ,[user])
   return (
     <AuthGuard>
       <DashboardLayoutRoot>

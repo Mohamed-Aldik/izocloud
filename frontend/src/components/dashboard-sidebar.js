@@ -22,26 +22,41 @@ const items = [
     icon: (<ChartBarIcon fontSize="small" />),
     title: 'Dashboard'
   },
-  // {
-  //   href: '/customers',
-  //   icon: (<UsersIcon fontSize="small" />),
-  //   title: 'Customers'
-  // },
+  {
+    href: '/categories',
+    icon: (<ShoppingBagIcon fontSize="small" />),
+    title: 'Categories'
+  },
+  {
+    href: '/brands',
+    icon: (<UserIcon fontSize="small" />),
+    title: 'Brands'
+  },
+  {
+    href: '/warranties',
+    icon: (<CogIcon fontSize="small" />),
+    title: 'Warranties'
+  },
+  {
+    href: '/units',
+    icon: (<ShoppingBagIcon fontSize="small" />),
+    title: 'Units'
+  },
   // {
   //   href: '/products',
   //   icon: (<ShoppingBagIcon fontSize="small" />),
   //   title: 'Products'
   // },
-  // {
-  //   href: '/account',
-  //   icon: (<UserIcon fontSize="small" />),
-  //   title: 'Account'
-  // },
-  // {
-  //   href: '/settings',
-  //   icon: (<CogIcon fontSize="small" />),
-  //   title: 'Settings'
-  // }
+  {
+    href: '/account',
+    icon: (<UserIcon fontSize="small" />),
+    title: 'Account'
+  },
+  {
+    href: '/settings',
+    icon: (<CogIcon fontSize="small" />),
+    title: 'Settings'
+  }
 ];
 
 export const DashboardSidebar = (props) => {

@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import Head from 'next/head';
-import NextLink from 'next/link';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
+import { useState } from "react";
+import Head from "next/head";
+import NextLink from "next/link";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import {
   Box,
   Button,
@@ -11,110 +11,81 @@ import {
   FormHelperText,
   Link,
   TextField,
-  Typography
-} from '@mui/material';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { useAuth } from '@/hooks/auth'
+  Typography,
+} from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useAuth } from "@/hooks/auth";
+import Router from "next/router";
 
 const Register = () => {
-  const [errors, setErrors] = useState([])
-
-  const { register } = useAuth({
-    middleware: 'guest',
-    redirectIfAuthenticated: '/',
-})
-
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-      name: '',
-      password: '',
-      passwordConfirmation: '',
-      policy: false
-    },
-    validationSchema: Yup.object({
-      email: Yup
-        .string()
-        .email('Must be a valid email')
-        .max(255)
-        .required(
-          'Email is required'),
-      name: Yup
-        .string()
-        .max(255)
-        .required('First name is required'),
-      password: Yup
-        .string()
-        .max(255)
-        .required('Password is required'),
-        passwordConfirmation: Yup
-        .string()
-        .max(255)
-        .required('Confirm Password is required')
-        .oneOf([Yup.ref('password')], 'Passwords does not match'),
-      policy: Yup
-        .boolean()
-        .oneOf(
-          [true],
-          'This field must be checked'
-        )
-    }),
-    onSubmit: () => {
-      register({
-        name:formik.values.name,
-        email:formik.values.email,
-        password:formik.values.password,
-        password_confirmation: formik.values.passwordConfirmation,
-        setErrors
-    })
-      // Router
-      //   .push('/')
-      //   .catch(console.error);
-    }
+  const [errors, setErrors] = useState({
+    email: "",
+    name: "",
+    password: "",
+    passwordConfirmation: "",
   });
 
- 
+  const { register } = useAuth({
+    middleware: "guest",
+    redirectIfAuthenticated: "/",
+  });
+  console.log(errors);
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      name: "",
+      password: "",
+      passwordConfirmation: "",
+      policy: false,
+    },
+    validationSchema: Yup.object({
+      email: Yup.string().email("Must be a valid email").max(255).required("Email is required"),
+      name: Yup.string().max(255).required("First name is required"),
+      password: Yup.string().max(255).required("Password is required"),
+      passwordConfirmation: Yup.string()
+        .max(255)
+        .required("Confirm Password is required")
+        .oneOf([Yup.ref("password")], "Passwords does not match"),
+      policy: Yup.boolean().oneOf([true], "This field must be checked"),
+    }),
+    onSubmit: () => {
+      //   register({
+      //     name:formik.values.name,
+      //     email:formik.values.email,
+      //     password:formik.values.password,
+      //     password_confirmation: formik.values.passwordConfirmation,
+      //     setErrors
+      // })
+      Router.push("/").catch(console.error);
+    },
+  });
+
   return (
     <>
       <Head>
-        <title>
-          Register | IzoCloud
-        </title>
+        <title>Register | IzoCloud</title>
       </Head>
       <Box
         component="main"
         sx={{
-          alignItems: 'center',
-          display: 'flex',
+          alignItems: "center",
+          display: "flex",
           flexGrow: 1,
-          minHeight: '100%'
+          minHeight: "100%",
         }}
       >
         <Container maxWidth="sm">
-          <NextLink
-            href="/login"
-            passHref
-          >
-            <Button
-              component="a"
-              startIcon={<ArrowBackIcon fontSize="small" />}
-            >
+          <NextLink href="/login" passHref>
+            <Button component="a" startIcon={<ArrowBackIcon fontSize="small" />}>
               Login
             </Button>
           </NextLink>
           <form onSubmit={formik.handleSubmit}>
             <Box sx={{ my: 3 }}>
-              <Typography
-                color="textPrimary"
-                variant="h4"
-              >
+              <Typography color="textPrimary" variant="h4">
                 Create a new account
               </Typography>
-              <Typography
-                color="textSecondary"
-                gutterBottom
-                variant="body2"
-              >
+              <Typography color="textSecondary" gutterBottom variant="body2">
                 Use your email to create a new account
               </Typography>
             </Box>
@@ -130,11 +101,16 @@ const Register = () => {
               value={formik.values.name}
               variant="outlined"
             />
-           
+
             <TextField
-              error={Boolean(formik.touched.email && formik.errors.email)}
+              error={
+                Boolean(formik.touched.email && formik.errors.email) ||
+                Boolean(errors.email && errors.email)
+              }
               fullWidth
-              helperText={formik.touched.email && formik.errors.email}
+              helperText={
+                (formik.touched.email && formik.errors.email) || (errors.email && errors.email)
+              }
               label="Email Address"
               margin="normal"
               name="email"
@@ -145,9 +121,15 @@ const Register = () => {
               variant="outlined"
             />
             <TextField
-              error={Boolean(formik.touched.password && formik.errors.password)}
+              error={
+                Boolean(formik.touched.password && formik.errors.password) ||
+                Boolean(errors.password && errors.password)
+              }
               fullWidth
-              helperText={formik.touched.password && formik.errors.password}
+              helperText={
+                (formik.touched.password && formik.errors.password) ||
+                (errors.password && errors.password)
+              }
               label="Password"
               margin="normal"
               name="password"
@@ -158,9 +140,16 @@ const Register = () => {
               variant="outlined"
             />
             <TextField
-              error={Boolean(formik.touched.passwordConfirmation && formik.errors.passwordConfirmation)}
+              error={
+                Boolean(
+                  formik.touched.passwordConfirmation && formik.errors.passwordConfirmation
+                ) || Boolean(errors.passwordConfirmation && errors.passwordConfirmation)
+              }
               fullWidth
-              helperText={formik.touched.passwordConfirmation && formik.errors.passwordConfirmation}
+              helperText={
+                (formik.touched.passwordConfirmation && formik.errors.passwordConfirmation) ||
+                (errors.passwordConfirmation && errors.passwordConfirmation)
+              }
               label="Confirm Password"
               margin="normal"
               name="passwordConfirmation"
@@ -172,9 +161,9 @@ const Register = () => {
             />
             <Box
               sx={{
-                alignItems: 'center',
-                display: 'flex',
-                ml: -1
+                alignItems: "center",
+                display: "flex",
+                ml: -1,
               }}
             >
               <Checkbox
@@ -182,30 +171,17 @@ const Register = () => {
                 name="policy"
                 onChange={formik.handleChange}
               />
-              <Typography
-                color="textSecondary"
-                variant="body2"
-              >
-                I have read the
-                {' '}
-                <NextLink
-                  href="#"
-                  passHref
-                >
-                  <Link
-                    color="primary"
-                    underline="always"
-                    variant="subtitle2"
-                  >
+              <Typography color="textSecondary" variant="body2">
+                I have read the{" "}
+                <NextLink href="#" passHref>
+                  <Link color="primary" underline="always" variant="subtitle2">
                     Terms and Conditions
                   </Link>
                 </NextLink>
               </Typography>
             </Box>
             {Boolean(formik.touched.policy && formik.errors.policy) && (
-              <FormHelperText error>
-                {formik.errors.policy}
-              </FormHelperText>
+              <FormHelperText error>{formik.errors.policy}</FormHelperText>
             )}
             <Box sx={{ py: 2 }}>
               <Button
@@ -219,20 +195,10 @@ const Register = () => {
                 Sign Up Now
               </Button>
             </Box>
-            <Typography
-              color="textSecondary"
-              variant="body2"
-            >
-              Have an account?
-              {' '}
-              <NextLink
-                href="/login"
-                passHref
-              >
-                <Link
-                  variant="subtitle2"
-                  underline="hover"
-                >
+            <Typography color="textSecondary" variant="body2">
+              Have an account?{" "}
+              <NextLink href="/login" passHref>
+                <Link variant="subtitle2" underline="hover">
                   Sign In
                 </Link>
               </NextLink>

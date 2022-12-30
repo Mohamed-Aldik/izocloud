@@ -1,12 +1,14 @@
 {
- 
     "compilerOptions": {
+      "lib": ["es6","dom", "dom.iterable", "esnext"],
+      "noImplicitAny": true,
+      "noImplicitThis": true,
+      "strictNullChecks": true,
       "baseUrl": "src/",
       "paths": {
           "@/*": ["./*"]
       },
       "target": "es5",
-      "lib": ["dom", "dom.iterable", "esnext"],
       "allowJs": true,
       "skipLibCheck": true,
       "strict": true,

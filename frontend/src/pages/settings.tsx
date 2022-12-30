@@ -8,7 +8,7 @@ const Page = () => (
   <>
     <Head>
       <title>
-        Settings | Material Kit
+        Settings | IzoCloud
       </title>
     </Head>
     <Box
