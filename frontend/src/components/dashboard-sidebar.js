@@ -43,6 +43,31 @@ const items = [
     title: 'Units'
   },
   {
+    href: '/selling-price-groups',
+    icon: (<ShoppingBagIcon fontSize="small" />),
+    title: 'Selling Price Group'
+  },
+  {
+    href: '/import-opening-stock',
+    icon: (<ShoppingBagIcon fontSize="small" />),
+    title: 'Import Opening Stock'
+  },
+  {
+    href: '/import-products',
+    icon: (<ShoppingBagIcon fontSize="small" />),
+    title: 'Import Products'
+  },
+  {
+    href: '/variations',
+    icon: (<ShoppingBagIcon fontSize="small" />),
+    title: 'Variations'
+  },
+  {
+    href: '/list-products',
+    icon: (<ShoppingBagIcon fontSize="small" />),
+    title: 'List Products'
+  },
+  {
     href: '/login',
     icon: (<ShoppingBagIcon fontSize="small" />),
     title: 'Login'

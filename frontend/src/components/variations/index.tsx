@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ChangeEvent, Key, useState } from "react";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import PropTypes from "prop-types";
@@ -16,9 +17,8 @@ import {
   TableRow,
 } from "@mui/material";
 import Iconify from "../iconify";
-import Link from "next/link";
 
-export const BrandsListResults = ({ customers, ...rest }: any, props: any) => {
+export const VariationsListResults = ({ customers, ...rest }: any, props: any) => {
   const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
@@ -91,8 +91,8 @@ export const BrandsListResults = ({ customers, ...rest }: any, props: any) => {
                     onChange={handleSelectAll}
                   />
                 </TableCell>
-                <TableCell>Brand</TableCell>
-                <TableCell>Note</TableCell>
+                <TableCell>Variations</TableCell>
+                <TableCell>Values</TableCell>
                 <TableCell>Action</TableCell>
               </TableRow>
             </TableHead>
@@ -156,7 +156,7 @@ export const BrandsListResults = ({ customers, ...rest }: any, props: any) => {
           },
         }}
       >
-        <Link href="/brand/edit">
+        <Link href="/variation/edit">
           <MenuItem>
             <Iconify icon={"eva:edit-fill"} sx={{ mr: 2 }} />
             Edit
@@ -172,6 +172,6 @@ export const BrandsListResults = ({ customers, ...rest }: any, props: any) => {
   );
 };
 
-BrandsListResults.propTypes = {
+VariationsListResults.propTypes = {
   customers: PropTypes.array.isRequired,
 };

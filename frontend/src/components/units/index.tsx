@@ -78,7 +78,7 @@ export const UnitsListResults = ({ customers, ...rest }: any, props: any) => {
     setOpenMenu(null);
   };
   return (
-    <Card {...rest}>
+    <Card sx={{ overflow: "scroll" }} {...rest}>
       <PerfectScrollbar>
         <Box sx={{ minWidth: 1050 }}>
           <Table>

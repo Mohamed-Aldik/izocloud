@@ -1,14 +1,12 @@
 import Head from "next/head";
 import { Box, Container } from "@mui/material";
-import { DashboardLayout } from "../components/dashboard-layout";
-import { customers } from "../__mocks__/customers";
-import { WarrantiesListToolbar } from "@/components/warranties/warranties-list-toolbar";
-import { WarrantiesListResults } from "@/components/warranties";
+import { DashboardLayout } from "@/components/dashboard-layout";
+import AddVariation from "@/components/variations/add-variation";
 
 const Page = () => (
   <>
     <Head>
-      <title>Warranties | IzoCloud</title>
+      <title>Add Variation | IzoCloud</title>
     </Head>
     <Box
       component="main"
@@ -18,9 +16,8 @@ const Page = () => (
       }}
     >
       <Container maxWidth={false}>
-        <WarrantiesListToolbar />
         <Box sx={{ mt: 3 }}>
-          <WarrantiesListResults customers={customers} />
+          <AddVariation />
         </Box>
       </Container>
     </Box>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ChangeEvent, Key, useState } from "react";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import PropTypes from "prop-types";
@@ -6,7 +7,6 @@ import {
   Card,
   Checkbox,
   IconButton,
-  Link,
   MenuItem,
   Popover,
   Table,
@@ -74,7 +74,7 @@ export const WarrantiesListResults = ({ customers, ...rest }: any, props: any) =
     setOpenMenu(null);
   };
   return (
-    <Card {...rest}>
+    <Card sx={{ overflow: "scroll" }} {...rest}>
       <PerfectScrollbar>
         <Box sx={{ minWidth: 1050 }}>
           <Table>

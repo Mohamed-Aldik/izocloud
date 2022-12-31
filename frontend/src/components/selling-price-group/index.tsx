@@ -1,11 +1,15 @@
+import Link from "next/link";
 import { ChangeEvent, Key, useState } from "react";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import PropTypes from "prop-types";
 import {
   Box,
+  Button,
   Card,
   Checkbox,
   IconButton,
+  List,
+  ListItem,
   MenuItem,
   Popover,
   Table,
@@ -14,11 +18,13 @@ import {
   TableHead,
   TablePagination,
   TableRow,
+  Typography,
 } from "@mui/material";
+import { Upload as UploadIcon } from "../../icons/upload";
+import { Download as DownloadIcon } from "../../icons/download";
 import Iconify from "../iconify";
-import Link from "next/link";
 
-export const BrandsListResults = ({ customers, ...rest }: any, props: any) => {
+export const SellingPriceGroupListResults = ({ customers, ...rest }: any, props: any) => {
   const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
@@ -75,6 +81,23 @@ export const BrandsListResults = ({ customers, ...rest }: any, props: any) => {
   };
   return (
     <Card sx={{ overflow: "scroll" }} {...rest}>
+      <Button startIcon={<UploadIcon fontSize="small" />} sx={{ mr: 1 }}>
+        Import
+      </Button>
+      <Button startIcon={<DownloadIcon fontSize="small" />} sx={{ mr: 1 }}>
+        Export
+      </Button>
+      <Typography>
+        <Typography variant="h6">Instructions:</Typography>
+        <List aria-labelledby="basic-list-demo">
+          <ListItem>Export Selling price group prices.</ListItem>
+          <ListItem>Update the exported file and import the same file.</ListItem>
+          <ListItem>
+            Only selling price group prices of the product will be updated. Any blank price will be
+            skipped.
+          </ListItem>
+        </List>
+      </Typography>
       <PerfectScrollbar>
         <Box sx={{ minWidth: 1050 }}>
           <Table>
@@ -91,8 +114,8 @@ export const BrandsListResults = ({ customers, ...rest }: any, props: any) => {
                     onChange={handleSelectAll}
                   />
                 </TableCell>
-                <TableCell>Brand</TableCell>
-                <TableCell>Note</TableCell>
+                <TableCell>Name</TableCell>
+                <TableCell>Description</TableCell>
                 <TableCell>Action</TableCell>
               </TableRow>
             </TableHead>
@@ -156,13 +179,12 @@ export const BrandsListResults = ({ customers, ...rest }: any, props: any) => {
           },
         }}
       >
-        <Link href="/brand/edit">
+        <Link href="/selling-price-group/edit">
           <MenuItem>
             <Iconify icon={"eva:edit-fill"} sx={{ mr: 2 }} />
             Edit
           </MenuItem>
         </Link>
-
         <MenuItem sx={{ color: "error.main" }}>
           <Iconify icon={"eva:trash-2-outline"} sx={{ mr: 2 }} />
           Delete
@@ -172,6 +194,6 @@ export const BrandsListResults = ({ customers, ...rest }: any, props: any) => {
   );
 };
 
-BrandsListResults.propTypes = {
+SellingPriceGroupListResults.propTypes = {
   customers: PropTypes.array.isRequired,
 };

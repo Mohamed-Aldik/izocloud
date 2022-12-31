@@ -1,11 +1,15 @@
+import Link from "next/link";
 import { ChangeEvent, Key, useState } from "react";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import PropTypes from "prop-types";
 import {
   Box,
+  Button,
   Card,
   Checkbox,
   IconButton,
+  List,
+  ListItem,
   MenuItem,
   Popover,
   Table,
@@ -14,11 +18,13 @@ import {
   TableHead,
   TablePagination,
   TableRow,
+  Typography,
 } from "@mui/material";
+import { Upload as UploadIcon } from "../../icons/upload";
+import { Download as DownloadIcon } from "../../icons/download";
 import Iconify from "../iconify";
-import Link from "next/link";
 
-export const BrandsListResults = ({ customers, ...rest }: any, props: any) => {
+export const ImportOpeningStockListResults = ({ customers, ...rest }: any, props: any) => {
   const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
@@ -75,25 +81,21 @@ export const BrandsListResults = ({ customers, ...rest }: any, props: any) => {
   };
   return (
     <Card sx={{ overflow: "scroll" }} {...rest}>
+      <Typography>
+        <Typography variant="h6" gutterBottom>
+          Instructions:
+        </Typography>
+        <Typography>Follow the instructions carefully before importing the file.</Typography>
+        <Typography>The columns of the file should be in the following order.</Typography>
+      </Typography>
       <PerfectScrollbar>
-        <Box sx={{ minWidth: 1050 }}>
+        <Box sx={{ minWidth: 1050, mt: 3 }}>
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell padding="checkbox">
-                  <Checkbox
-                    checked={selectedCustomerIds.length === customers.length}
-                    color="primary"
-                    indeterminate={
-                      selectedCustomerIds.length > 0 &&
-                      selectedCustomerIds.length < customers.length
-                    }
-                    onChange={handleSelectAll}
-                  />
-                </TableCell>
-                <TableCell>Brand</TableCell>
-                <TableCell>Note</TableCell>
-                <TableCell>Action</TableCell>
+                <TableCell>Column Number </TableCell>
+                <TableCell>Column Name </TableCell>
+                <TableCell>Instruction</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -105,22 +107,9 @@ export const BrandsListResults = ({ customers, ...rest }: any, props: any) => {
                     //@ts-ignore
                     selected={selectedCustomerIds.indexOf(customer.id) !== -1}
                   >
-                    <TableCell padding="checkbox">
-                      <Checkbox
-                        //@ts-ignore
-                        checked={selectedCustomerIds.indexOf(customer.id) !== -1}
-                        onChange={(event) => handleSelectOne(event, customer.id)}
-                        value="true"
-                      />
-                    </TableCell>
                     <TableCell>{customer.name}</TableCell>
                     <TableCell>{customer.email}</TableCell>
-                    <TableCell>
-                      {/* @ts-ignore */}
-                      <IconButton size="large" color="inherit" onClick={handleOpenMenu}>
-                        <Iconify icon={"eva:more-vertical-fill"} />
-                      </IconButton>
-                    </TableCell>
+                    <TableCell>{customer.email}</TableCell>
                   </TableRow>
                 </>
               ))}
@@ -128,50 +117,10 @@ export const BrandsListResults = ({ customers, ...rest }: any, props: any) => {
           </Table>
         </Box>
       </PerfectScrollbar>
-      <TablePagination
-        component="div"
-        count={customers.length}
-        onPageChange={handlePageChange}
-        //@ts-ignore
-        onRowsPerPageChange={handleLimitChange}
-        page={page}
-        rowsPerPage={limit}
-        rowsPerPageOptions={[5, 10, customers.length > 25 ? customers.length : 25]}
-      />
-      <Popover
-        open={Boolean(openMenu)}
-        anchorEl={openMenu}
-        onClose={handleCloseMenu}
-        anchorOrigin={{ vertical: "top", horizontal: "left" }}
-        transformOrigin={{ vertical: "top", horizontal: "right" }}
-        PaperProps={{
-          sx: {
-            p: 1,
-            width: 140,
-            "& .MuiMenuItem-root": {
-              px: 1,
-              typography: "body2",
-              borderRadius: 0.75,
-            },
-          },
-        }}
-      >
-        <Link href="/brand/edit">
-          <MenuItem>
-            <Iconify icon={"eva:edit-fill"} sx={{ mr: 2 }} />
-            Edit
-          </MenuItem>
-        </Link>
-
-        <MenuItem sx={{ color: "error.main" }}>
-          <Iconify icon={"eva:trash-2-outline"} sx={{ mr: 2 }} />
-          Delete
-        </MenuItem>
-      </Popover>
     </Card>
   );
 };
 
-BrandsListResults.propTypes = {
+ImportOpeningStockListResults.propTypes = {
   customers: PropTypes.array.isRequired,
 };

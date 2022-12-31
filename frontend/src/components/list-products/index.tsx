@@ -1,8 +1,10 @@
+import Link from "next/link";
 import { ChangeEvent, Key, useState } from "react";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import PropTypes from "prop-types";
 import {
   Box,
+  Typography,
   Card,
   Checkbox,
   IconButton,
@@ -14,11 +16,12 @@ import {
   TableHead,
   TablePagination,
   TableRow,
+  Avatar,
 } from "@mui/material";
+import { getInitials } from "../../utils/get-initials";
 import Iconify from "../iconify";
-import Link from "next/link";
 
-export const BrandsListResults = ({ customers, ...rest }: any, props: any) => {
+export const ListProductsListResults = ({ customers, ...rest }: any, props: any) => {
   const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
@@ -91,8 +94,21 @@ export const BrandsListResults = ({ customers, ...rest }: any, props: any) => {
                     onChange={handleSelectAll}
                   />
                 </TableCell>
+                <TableCell>Product</TableCell>
+                <TableCell>Business Location</TableCell>
                 <TableCell>Brand</TableCell>
-                <TableCell>Note</TableCell>
+                <TableCell>Unit Cost Price</TableCell>
+                <TableCell>Unit Sale Price Exc.Vat</TableCell>
+                <TableCell>Selling Price</TableCell>
+                <TableCell>Current Stock</TableCell>
+                <TableCell>Product Type</TableCell>
+                <TableCell>Category</TableCell>
+                <TableCell>Tax</TableCell>
+                <TableCell>SKU</TableCell>
+                <TableCell>Custom Field1</TableCell>
+                <TableCell>Custom Field2</TableCell>
+                <TableCell>Custom Field3</TableCell>
+                <TableCell>Custom Field4 </TableCell>
                 <TableCell>Action</TableCell>
               </TableRow>
             </TableHead>
@@ -113,7 +129,34 @@ export const BrandsListResults = ({ customers, ...rest }: any, props: any) => {
                         value="true"
                       />
                     </TableCell>
-                    <TableCell>{customer.name}</TableCell>
+                    <TableCell>
+                      <Box
+                        sx={{
+                          alignItems: "center",
+                          display: "flex",
+                        }}
+                      >
+                        <Avatar src={customer.avatarUrl} sx={{ mr: 2 }}>
+                          {getInitials(customer.name)}
+                        </Avatar>
+                        <Typography color="textPrimary" variant="body1">
+                          {customer.name}
+                        </Typography>
+                      </Box>
+                    </TableCell>
+                    <TableCell>{customer.email}</TableCell>
+                    <TableCell>{customer.email}</TableCell>
+                    <TableCell>{customer.email}</TableCell>
+                    <TableCell>{customer.email}</TableCell>
+                    <TableCell>{customer.email}</TableCell>
+                    <TableCell>{customer.email}</TableCell>
+                    <TableCell>{customer.email}</TableCell>
+                    <TableCell>{customer.email}</TableCell>
+                    <TableCell>{customer.email}</TableCell>
+                    <TableCell>{customer.email}</TableCell>
+                    <TableCell>{customer.email}</TableCell>
+                    <TableCell>{customer.email}</TableCell>
+                    <TableCell>{customer.email}</TableCell>
                     <TableCell>{customer.email}</TableCell>
                     <TableCell>
                       {/* @ts-ignore */}
@@ -156,7 +199,7 @@ export const BrandsListResults = ({ customers, ...rest }: any, props: any) => {
           },
         }}
       >
-        <Link href="/brand/edit">
+        <Link href="/variation/edit">
           <MenuItem>
             <Iconify icon={"eva:edit-fill"} sx={{ mr: 2 }} />
             Edit
@@ -172,6 +215,6 @@ export const BrandsListResults = ({ customers, ...rest }: any, props: any) => {
   );
 };
 
-BrandsListResults.propTypes = {
+ListProductsListResults.propTypes = {
   customers: PropTypes.array.isRequired,
 };

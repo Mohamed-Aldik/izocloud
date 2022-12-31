@@ -1,14 +1,14 @@
 import Head from "next/head";
 import { Box, Container } from "@mui/material";
+import { SellingPriceGroupListResults } from "../components/selling-price-group";
+import { SellingPriceGroupListToolbar } from "../components/selling-price-group/selling-price-group-list-toolbar";
 import { DashboardLayout } from "../components/dashboard-layout";
 import { customers } from "../__mocks__/customers";
-import { WarrantiesListToolbar } from "@/components/warranties/warranties-list-toolbar";
-import { WarrantiesListResults } from "@/components/warranties";
 
 const Page = () => (
   <>
     <Head>
-      <title>Warranties | IzoCloud</title>
+      <title>Selling Price Group | IzoCloud</title>
     </Head>
     <Box
       component="main"
@@ -18,9 +18,9 @@ const Page = () => (
       }}
     >
       <Container maxWidth={false}>
-        <WarrantiesListToolbar />
+        <SellingPriceGroupListToolbar />
         <Box sx={{ mt: 3 }}>
-          <WarrantiesListResults customers={customers} />
+          <SellingPriceGroupListResults customers={customers} />
         </Box>
       </Container>
     </Box>
