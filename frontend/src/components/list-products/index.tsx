@@ -199,7 +199,7 @@ export const ListProductsListResults = ({ customers, ...rest }: any, props: any)
           },
         }}
       >
-        <Link href="/variation/edit">
+        <Link href="/product/edit">
           <MenuItem>
             <Iconify icon={"eva:edit-fill"} sx={{ mr: 2 }} />
             Edit

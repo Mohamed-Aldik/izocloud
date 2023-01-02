@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useState } from "react";
 import {
   Box,
   Button,
@@ -49,7 +48,7 @@ export const ListProductsListToolbar = (props: any) => {
             <Button startIcon={<DownloadIcon fontSize="small" />} sx={{ mr: 1 }}>
               Export
             </Button>
-            <Link href="/variation/add">
+            <Link href="/product/add">
               <Button
                 color="primary"
                 variant="contained"
