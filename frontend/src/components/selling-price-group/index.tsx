@@ -88,7 +88,9 @@ export const SellingPriceGroupListResults = ({ customers, ...rest }: any, props:
         Export
       </Button>
       <Typography>
-        <Typography variant="h6">Instructions:</Typography>
+        <Typography padding={2} variant="h6">
+          Instructions:
+        </Typography>
         <List aria-labelledby="basic-list-demo">
           <ListItem>Export Selling price group prices.</ListItem>
           <ListItem>Update the exported file and import the same file.</ListItem>

@@ -37,16 +37,10 @@ const Step1 = () => {
         <TextField fullWidth id="outlined-basic" label="Sub category*" variant="outlined" />
       </Grid>
       <Grid item xs={12} md={4}>
-        <Stack direction="row" alignItems="center" spacing={2}>
-          <Button startIcon={<UploadIcon />} variant="contained" component="label">
-            Upload Brochure
-            <input hidden accept="image/*" multiple type="file" />
-          </Button>
-          <Button startIcon={<UploadIcon />} variant="contained" component="label">
-            Upload Image
-            <input hidden accept="image/*" multiple type="file" />
-          </Button>
-        </Stack>
+        <Button fullWidth startIcon={<UploadIcon />} variant="contained" component="label">
+          Upload Brochure
+          <input hidden accept="image/*" multiple type="file" />
+        </Button>
       </Grid>
       <Grid item xs={6}>
         <FocusTrap open={open} disableRestoreFocus disableAutoFocus>

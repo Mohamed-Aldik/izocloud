@@ -82,7 +82,7 @@ export const ImportOpeningStockListResults = ({ customers, ...rest }: any, props
   return (
     <Card sx={{ overflow: "scroll" }} {...rest}>
       <Typography>
-        <Typography variant="h6" gutterBottom>
+        <Typography padding={2} variant="h6" gutterBottom>
           Instructions:
         </Typography>
         <Typography>Follow the instructions carefully before importing the file.</Typography>

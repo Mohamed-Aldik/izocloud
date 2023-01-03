@@ -11,6 +11,20 @@ export const theme = createTheme({
     }
   },
   components: {
+    MuiTextField:{
+      styleOverrides: {
+        root: {
+          background: "#fff",
+        },
+      }
+    },
+    MuiSelect:{
+      styleOverrides: {
+        root: {
+          background: "#fff",
+        },
+      }
+    },
     MuiButton: {
       defaultProps: {
         disableElevation: true
@@ -103,7 +117,7 @@ export const theme = createTheme({
     MuiOutlinedInput: {
       styleOverrides: {
         notchedOutline: {
-          borderColor: '#E6E8F0'
+          borderColor: '#E6E8F0',
         }
       }
     },

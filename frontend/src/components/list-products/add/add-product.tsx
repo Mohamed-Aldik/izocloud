@@ -120,9 +120,13 @@ export default function HorizontalNonLinearStepper() {
               Back
             </Button>
             <Box sx={{ flex: "1 1 auto" }} />
-            <Button disabled={activeStep === 1} onClick={handleNext} sx={{ mr: 1 }}>
-              Next
-            </Button>
+            {activeStep === 1 ? (
+              <Button sx={{ mr: 1 }}>Add</Button>
+            ) : (
+              <Button disabled={activeStep === 1} onClick={handleNext} sx={{ mr: 1 }}>
+                Next
+              </Button>
+            )}
           </Box>
         </React.Fragment>
       </div>
