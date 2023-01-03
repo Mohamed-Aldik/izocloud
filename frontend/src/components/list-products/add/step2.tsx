@@ -9,6 +9,8 @@ import {
   FormControlLabel,
 } from "@mui/material";
 import { useState } from "react";
+import Drag from "./drag";
+
 const Step2 = () => {
   const [age, setAge] = useState("");
 
@@ -89,6 +91,9 @@ const Step2 = () => {
       </Grid>
       <Grid item xs={12}>
         <FormControlLabel control={<Checkbox />} label=" Disable Woocommerce Sync " />{" "}
+      </Grid>
+      <Grid item xs={12}>
+        <Drag />
       </Grid>
     </Grid>
   );

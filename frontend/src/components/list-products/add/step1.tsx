@@ -1,6 +1,6 @@
 import { useState } from "react";
 import React from "react";
-// import { Editor } from "@tinymce/tinymce-react";
+import { Editor } from "@tinymce/tinymce-react";
 import { Checkbox, FormControlLabel, TextField } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
@@ -10,7 +10,6 @@ import FocusTrap from "@mui/base/FocusTrap";
 
 const Step1 = () => {
   const [open, setOpen] = useState(false);
-
   return (
     <Grid container my={3} spacing={3}>
       <Grid item xs={4}>
@@ -63,27 +62,25 @@ const Step1 = () => {
         </FocusTrap>
       </Grid>
       <Grid item xs={12}>
-        {/* <Editor
+        <Editor
           apiKey="yhjpmayu9w0h8hwguh8bl3yulqv59o4f45fwixzegb5lxng6"
+          initialValue="<p>Product Description:</p>"
           init={{
-            skin: "snow",
-            icons: "thin",
-            placeholder: "<p>Product Description:</p>",
-
-            menubar: true,
+            height: 500,
+            menubar: false,
             plugins: [
               "advlist autolink lists link image charmap print preview anchor",
-              "searchreplace visualblocks code fullscreen textcolor ",
+              "searchreplace visualblocks code fullscreen",
               "insertdatetime media table paste code help wordcount",
             ],
-            textcolor_rows: "4",
-
             toolbar:
-              "undo redo | styleselect | fontsizeselect| code | bold italic | alignleft aligncenter alignright alignjustify | outdent indent ",
+              "undo redo | formatselect | " +
+              "bold italic backcolor | alignleft aligncenter " +
+              "alignright alignjustify | bullist numlist outdent indent | " +
+              "removeformat | help",
+            content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
           }}
-          onEditorChange={handleEditorChange}
-          outputFormat="html"
-        /> */}
+        />
       </Grid>
     </Grid>
   );
