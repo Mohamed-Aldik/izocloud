@@ -1,6 +1,6 @@
 import { useState } from "react";
 import React from "react";
-import { Editor } from "@tinymce/tinymce-react";
+// import { Editor } from "@tinymce/tinymce-react";
 import { Checkbox, FormControlLabel, TextField } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
