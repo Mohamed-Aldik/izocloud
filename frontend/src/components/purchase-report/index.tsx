@@ -19,7 +19,7 @@ import {
 import Iconify from "../iconify";
 import Link from "next/link";
 
-export const PurchaseReturnListResults = ({ customers, ...rest }: any, props: any) => {
+export const PurchaseReportListResults = ({ customers, ...rest }: any, props: any) => {
   const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
@@ -94,10 +94,10 @@ export const PurchaseReturnListResults = ({ customers, ...rest }: any, props: an
                 </TableCell>
                 <TableCell>Date</TableCell>
                 <TableCell>Reference No</TableCell>
-                <TableCell>Parent Purchase</TableCell>
+                <TableCell>Parent PurchaseReport</TableCell>
                 <TableCell>Location</TableCell>
                 <TableCell>Supplier</TableCell>
-                <TableCell>Purchase Status</TableCell>
+                <TableCell>PurchaseReport Status</TableCell>
                 <TableCell>Grand Total</TableCell>
                 <TableCell>Payment due</TableCell>
                 <TableCell>Action</TableCell>
@@ -187,6 +187,6 @@ export const PurchaseReturnListResults = ({ customers, ...rest }: any, props: an
   );
 };
 
-PurchaseReturnListResults.propTypes = {
+PurchaseReportListResults.propTypes = {
   customers: PropTypes.array.isRequired,
 };
