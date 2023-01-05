@@ -85,8 +85,10 @@ export const ImportProductsListResults = ({ customers, ...rest }: any, props: an
         <Typography padding={2} variant="h6" gutterBottom>
           Instructions:
         </Typography>
-        <Typography>Follow the instructions carefully before importing the file.</Typography>
-        <Typography>The columns of the file should be in the following order.</Typography>
+        <List aria-labelledby="basic-list-demo">
+          <ListItem>Follow the instructions carefully before importing the file.</ListItem>
+          <ListItem>The columns of the file should be in the following order.</ListItem>
+        </List>
       </Typography>
       <PerfectScrollbar>
         <Box sx={{ minWidth: 1050, mt: 3 }}>
